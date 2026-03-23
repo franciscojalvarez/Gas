@@ -145,11 +145,12 @@ async function seed() {
     if (!adminUser) {
         const hashedPassword = await bcrypt.hash('123456', 10);
         const nuevoAdmin = usuarioRepo.create({
+            username: 'admin',
             nombre: 'Super Admin',
             email: 'admin@gasnet.com',
-            password: hashedPassword,
-            role: adminRole,
-            puntos_acumulados: 0,
+            passwordHash: hashedPassword,
+            roleId: 1,
+            puntosAcumulados: 0,
             activo: true
         });
         await usuarioRepo.save(nuevoAdmin);

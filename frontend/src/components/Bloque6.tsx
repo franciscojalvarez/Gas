@@ -151,7 +151,10 @@ const Bloque6: React.FC = () => {
 
   return (
     <div className="bloque6">
-      <h1 className="page-title">Bloque 6: Bolsa de Trabajo</h1>
+      <div className="module-header module-b6">
+        <span className="module-icon">💼</span>
+        <div><h1>Bolsa de Trabajo</h1><p>Publicá y gestioná pedidos de trabajo</p></div>
+      </div>
 
       {message && (
         <div className={`alert ${message.includes('Error') ? 'alert-error' : 'alert-success'}`}>

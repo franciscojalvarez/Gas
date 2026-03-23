@@ -161,7 +161,10 @@ const Bloque3: React.FC = () => {
 
   return (
     <div className="bloque3">
-      <h1 className="page-title">Bloque 3: Presupuesto por Materiales</h1>
+      <div className="module-header module-b3">
+        <span className="module-icon">📦</span>
+        <div><h1>Presupuesto por Materiales</h1><p>Compará precios entre los 4 proveedores</p></div>
+      </div>
 
       {message && (
         <div className={`alert ${message.includes('Error') ? 'alert-error' : 'alert-success'}`}>

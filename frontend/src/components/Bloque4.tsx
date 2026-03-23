@@ -47,10 +47,10 @@ const Bloque4: React.FC = () => {
 
   return (
     <div className="bloque4">
-      <h1 className="page-title">Bloque 4: Sistema de Puntos</h1>
-      <p className="info-text">
-        Sistema de puntos: $1000 = 1 punto. Los puntos se acumulan automáticamente con las compras.
-      </p>
+      <div className="module-header module-b4">
+        <span className="module-icon">⭐</span>
+        <div><h1>Sistema de Puntos</h1><p>$1.000 = 1 punto · Usá tus puntos en capacitaciones</p></div>
+      </div>
 
       {message && (
         <div className={`alert ${message.includes('Error') ? 'alert-error' : 'alert-success'}`}>

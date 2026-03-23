@@ -60,10 +60,10 @@ const Bloque5: React.FC = () => {
 
   return (
     <div className="bloque5">
-      <h1 className="page-title">Bloque 5: Capacitaciones</h1>
-      <p className="info-text">
-        Sistema de 5 capacitaciones anuales. Cada capacitación tiene un costo en puntos.
-      </p>
+      <div className="module-header module-b5">
+        <span className="module-icon">🎓</span>
+        <div><h1>Capacitaciones</h1><p>5 cursos anuales · Inscribite con tus puntos</p></div>
+      </div>
 
       {message && (
         <div className={`alert ${message.includes('Error') ? 'alert-error' : 'alert-success'}`}>

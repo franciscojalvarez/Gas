@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import './Login.css';
 
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -16,63 +15,44 @@ const Login: React.FC = () => {
     setLoading(true);
 
     const result = await login(formData.username, formData.password);
-    
+
     if (result.success) {
       navigate('/');
     } else {
       setError(result.error || 'Error al iniciar sesión');
     }
-    
+
     setLoading(false);
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h1 className="login-title">App Gasnet</h1>
-        <p className="login-subtitle">Iniciar Sesión</p>
-
-        {error && (
-          <div className="alert alert-error">
-            {error}
-          </div>
-        )}
-
+    <div className="full-page">
+      <div className="login-wrapper">
+        <div className="login-logo">
+          <span className="logo-icon">⚡</span>
+          <h1>App Gasnet</h1>
+          <p>Sistema para Instaladores Sanitaristas y Gas</p>
+        </div>
+        {error && <div className="alert alert-error">⚠ {error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Usuario o Email</label>
-            <input
-              type="text"
-              value={formData.username}
+            <input type="text" value={formData.username}
               onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-              required
-              autoFocus
-            />
+              placeholder="Ingresá tu usuario o email" required autoFocus />
           </div>
-
           <div className="form-group">
             <label>Contraseña</label>
-            <input
-              type="password"
-              value={formData.password}
+            <input type="password" value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              required
-            />
+              placeholder="••••••••" required />
           </div>
-
-          <button 
-            type="submit" 
-            className="btn btn-primary btn-block"
-            disabled={loading}
-          >
-            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
+          <button type="submit" className="btn btn-primary" style={{width:'100%', padding:'11px'}} disabled={loading}>
+            {loading ? 'Iniciando sesión...' : '→ Ingresar'}
           </button>
         </form>
-
-        <div className="login-footer">
-          <p>
-            ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
-          </p>
+        <div className="login-divider">
+          ¿No tenés cuenta? <Link to="/register" style={{color:'#2563eb', fontWeight:500}}>Registrate</Link>
         </div>
       </div>
     </div>
@@ -80,4 +60,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-

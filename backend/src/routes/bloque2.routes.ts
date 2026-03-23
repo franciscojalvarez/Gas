@@ -73,19 +73,19 @@ router.post('/compra', authenticateToken, async (req: AuthRequest, res: Response
 
     const saved = await compraRepo.save(compra);
 
-    // Calcular puntos ($1000 = 1 punto)
-    const puntos = total / 1000;
+    // Calcular puntos ($1000 = 1 punto, redondeado hacia abajo)
+    const puntosGanados = Math.floor(total / 1000);
     const usuario = await usuarioRepo.findOne({ where: { id: req.user!.id } });
-    if (usuario) {
-      usuario.puntosAcumulados += puntos;
+    if (usuario && puntosGanados > 0) {
+      usuario.puntosAcumulados += puntosGanados;
       await usuarioRepo.save(usuario);
 
       await transaccionRepo.save({
         usuarioId: usuario.id,
         tipo: 'compra',
         monto: total,
-        puntos,
-        descripcion: 'Compra de accesorios Gasnet'
+        puntos: puntosGanados,
+        descripcion: `Compra de accesorios por $${total.toFixed(2)}`
       });
     }
 
@@ -93,7 +93,7 @@ router.post('/compra', authenticateToken, async (req: AuthRequest, res: Response
       id: saved.id,
       total,
       items,
-      puntos_obtenidos: puntos
+      puntos_obtenidos: puntosGanados
     });
   } catch (error: any) {
     res.status(500).json({ error: error.message });

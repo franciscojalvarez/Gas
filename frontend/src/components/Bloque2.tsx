@@ -127,7 +127,10 @@ const Bloque2: React.FC = () => {
 
   return (
     <div className="bloque2">
-      <h1 className="page-title">Bloque 2: Compra de Accesorios Gasnet</h1>
+      <div className="module-header module-b2">
+        <span className="module-icon">🛒</span>
+        <div><h1>Compra de Accesorios Gasnet</h1><p>Catálogo oficial · Pagá por transferencia y acumulá puntos</p></div>
+      </div>
 
       {message && (
         <div className={`alert ${message.includes('Error') ? 'alert-error' : 'alert-success'}`}>

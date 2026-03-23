@@ -53,7 +53,8 @@ router.post('/presupuesto', authenticateToken, async (req: AuthRequest, res: Res
     const presupuestoRepo = AppDataSource.getRepository(PresupuestoManoObra);
 
     const total = items.reduce((sum: number, item: any) => {
-      return sum + (item.cantidad * item.precio_unitario);
+      const precio = item.precio_unitario || item.precioUnitario || 0;
+      return sum + (item.cantidad * precio);
     }, 0);
 
     const presupuesto = presupuestoRepo.create({

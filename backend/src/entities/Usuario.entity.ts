@@ -1,44 +1,53 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, JoinColumn, CreateDateColumn } from 'typeorm';
 import { Role } from './Role.entity';
-// Importamos las entidades con las que se relaciona el usuario
 import { InscripcionCapacitacion } from './InscripcionCapacitacion.entity';
-import { TransaccionPunto } from './TransaccionPunto.entity'; 
-// Si tienes pedidos de trabajo, descomenta la siguiente línea e importa la entidad
-// import { PedidoTrabajo } from './PedidoTrabajo.entity';
+import { TransaccionPunto } from './TransaccionPunto.entity';
 
 @Entity('usuarios')
 export class Usuario {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ unique: true })
+  username: string;
+
   @Column()
   nombre: string;
+
+  @Column({ nullable: true })
+  apellido?: string;
 
   @Column({ unique: true })
   email: string;
 
-  @Column() // Contraseña obligatoria
-  password: string;
+  @Column({ nullable: true })
+  telefono?: string;
+
+  @Column({ name: 'password_hash' })
+  passwordHash: string;
 
   @Column({ name: 'puntos_acumulados', default: 0 })
-  puntos_acumulados: number;
+  puntosAcumulados: number;
 
   @Column({ default: true })
   activo: boolean;
 
-  // --- RELACIONES ---
+  @Column({ name: 'role_id', default: 2 })
+  roleId: number;
 
   @ManyToOne(() => Role, (role) => role.usuarios)
-  @JoinColumn({ name: 'roleId' })
+  @JoinColumn({ name: 'role_id' })
   role: Role;
+
+  @CreateDateColumn({ name: 'fecha_registro' })
+  fechaRegistro: Date;
+
+  @Column({ name: 'ultimo_acceso', nullable: true })
+  ultimoAcceso: Date;
 
   @OneToMany(() => InscripcionCapacitacion, (inscripcion) => inscripcion.usuario)
   inscripciones: InscripcionCapacitacion[];
 
   @OneToMany(() => TransaccionPunto, (transaccion) => transaccion.usuario)
   transacciones: TransaccionPunto[];
-
-  // Si en el futuro te da error con "pedidos", descomenta esto:
-  // @OneToMany(() => PedidoTrabajo, (pedido) => pedido.usuario)
-  // pedidos: PedidoTrabajo[];
 }
