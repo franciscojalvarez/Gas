@@ -1,0 +1,37 @@
+.bloque2 .payment-modal {
+  margin-top: 20px;
+  background-color: #fff3cd;
+  border: 2px solid #ffc107;
+}
+
+.payment-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-pendiente {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-aprobado {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-rechazado {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+

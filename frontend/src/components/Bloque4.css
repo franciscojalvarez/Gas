@@ -1,0 +1,84 @@
+.bloque4 .info-text {
+  background-color: #e3f2fd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #1565c0;
+}
+
+.bloque4 table tr.selected {
+  background-color: #e3f2fd;
+}
+
+.points-display {
+  font-weight: bold;
+  color: #f39c12;
+  font-size: 18px;
+}
+
+.user-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-item .label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.summary-item .value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.points-highlight {
+  color: #f39c12 !important;
+  font-size: 32px !important;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge-compra {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-capacitacion {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.points-positive {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.points-negative {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+

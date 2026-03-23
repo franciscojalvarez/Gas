@@ -1,0 +1,101 @@
+.bloque5 .info-text {
+  background-color: #f3e5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #7b1fa2;
+}
+
+.inscripcion-summary {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.capacitaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.capacitacion-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.capacitacion-card:hover {
+  border-color: #9b59b6;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.capacitacion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.capacitacion-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.puntos-badge {
+  background-color: #9b59b6;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.capacitacion-descripcion {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.capacitacion-detalle {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.capacitacion-detalle h4 {
+  margin-bottom: 10px;
+  color: #9b59b6;
+}
+
+.capacitacion-detalle p {
+  color: #555;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+
