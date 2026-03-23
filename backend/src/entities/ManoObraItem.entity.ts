@@ -11,10 +11,12 @@ export class ManoObraItem {
   @Column({ name: 'precio_unitario', type: 'decimal', precision: 10, scale: 2 })
   precioUnitario: number;
 
+  @Column({ nullable: true, default: 'General' })
+  categoria: string;
+
   @UpdateDateColumn({ name: 'fecha_actualizacion', nullable: true })
   fechaActualizacion: Date;
 
   @Column({ default: true })
   activo: boolean;
 }
-
